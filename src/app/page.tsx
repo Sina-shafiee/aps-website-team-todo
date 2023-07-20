@@ -1,6 +1,7 @@
-import { Shell } from '@/components/ui';
-import { Button, Stack, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { blue } from '@mui/material/colors';
+
+import { Shell } from '@/components/ui';
 
 const Home = () => {
   return (
