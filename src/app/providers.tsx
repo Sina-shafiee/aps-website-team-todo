@@ -1,5 +1,4 @@
 'use client';
-
 import type { PropsWithChildren, FC } from 'react';
 import { ThemeProvider } from '@mui/material';
 import { Provider as ReduxProvider } from 'react-redux';
