@@ -1,14 +1,15 @@
+'use client';
 import { Grid } from '@mui/material';
 import { TaskCard } from '@/components/ui';
+import { useAppSelector } from '@/store';
 
 export const TaskList = () => {
+  const todos = useAppSelector((state) => state.todos);
   return (
     <Grid container spacing={2}>
-      {Array.from({ length: 7 })
-        .fill(7)
-        .map((_, index) => (
-          <TaskCard key={index} />
-        ))}
+      {todos.map((todo) => (
+        <TaskCard {...todo} key={todo.id} />
+      ))}
     </Grid>
   );
 };

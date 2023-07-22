@@ -18,7 +18,7 @@ const persistor = persistStore(store);
 const Providers: FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return (
     <ReduxProvider store={store}>
-      <PersistGate persistor={persistor} loading={<LinearProgress sx={{ mt: -1 }} />}>
+      <PersistGate persistor={persistor}>
         <ThemeProvider>
           <CssBaseline />
           {children}

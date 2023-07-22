@@ -1,10 +1,16 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { addTodoSchema, AddTodoValues } from '@/utils';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, CircularProgress, LinearProgress, Stack } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { addTodo, useAppDispatch } from '@/store';
+
+import { Button, CircularProgress, LinearProgress, Stack } from '@mui/material';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { addTodoSchema, AddTodoValues } from '@/utils';
+
 import { BaseModal } from './baseModal';
+
 const AddTodoForm = dynamic(() => import('@/components/form').then((c) => c.AddTodoForm), {
   ssr: false,
   loading: () => (
@@ -14,14 +20,17 @@ const AddTodoForm = dynamic(() => import('@/components/form').then((c) => c.AddT
   ),
 });
 export const AddTodoModal = () => {
+  const _ = useAppDispatch();
+  const router = useRouter();
   const { control, handleSubmit } = useForm<AddTodoValues>({
     resolver: zodResolver(addTodoSchema),
-    mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    reValidateMode: 'onChange',
+    mode: 'onChange',
     shouldFocusError: true,
   });
   const onSubmit = (data: AddTodoValues) => {
-    console.log(data);
+    _(addTodo(data));
+    router.back();
   };
   const action = (
     <Button type='submit' form='add-todo-form' variant='contained'>
