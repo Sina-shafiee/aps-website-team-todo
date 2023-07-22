@@ -2,11 +2,12 @@
 import { AppBar as MuiAppbar, AppBarProps, styled } from '@mui/material';
 
 export const AppBar = styled(MuiAppbar)<AppBarProps>(({ theme }) => ({
-  background: theme.palette.common.white,
+  ...theme.mixins.toolbar,
+  background: 'inherit',
   boxShadow: 'none',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  ...theme.mixins.toolbar,
+  paddingTop: '1rem',
 }));

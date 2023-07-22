@@ -1,8 +1,9 @@
 'use client';
-import type { PropsWithChildren, FC } from 'react';
-import { ThemeProvider } from '@mui/material';
+import type { FC, PropsWithChildren } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
+import { CssBaseline } from '@mui/material';
 
+import { ThemeProvider } from '@/context/themeProvider';
 import { store } from '@/store';
 
 /**
@@ -13,7 +14,10 @@ import { store } from '@/store';
 const Providers: FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return (
     <ReduxProvider store={store}>
-      <ThemeProvider theme={{}}>{children}</ThemeProvider>
+      <ThemeProvider>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
     </ReduxProvider>
   );
 };

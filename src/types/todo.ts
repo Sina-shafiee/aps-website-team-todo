@@ -4,3 +4,5 @@ export type Todo = {
   is_completed: boolean;
   description: string;
 };
+
+export type InitialTodoState = Todo[];

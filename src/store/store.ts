@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 
 import todoReducer from './todo/todoSlice';
-
+import themeReducer from './theme/themeSlice';
 export const store = configureStore({
   reducer: {
     todos: todoReducer,
+    theme: themeReducer,
   },
+  devTools: true,
 });
 
 // typed state and dispatch
@@ -18,5 +20,6 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export { test } from './todo/todoSlice';
+export { toggleTheme } from './theme/themeSlice';
 
 export default store;

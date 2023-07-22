@@ -1,14 +1,16 @@
-import { Todo } from '@/types';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { InitialTodoState, Todo } from '@/types';
 
-const initialState: Todo[] = [];
+const initialState: InitialTodoState = [];
 
 export const todoSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
     test: (state, action: PayloadAction<number>) => {
-      action.payload;
+      console.log(action.payload);
+      console.log(state);
+      return state;
     },
   },
 });
