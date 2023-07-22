@@ -1,10 +1,14 @@
 'use client';
 import type { FC, PropsWithChildren } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { CssBaseline } from '@mui/material';
+import { persistStore } from 'redux-persist';
+import { CssBaseline, LinearProgress } from '@mui/material';
 
 import { ThemeProvider } from '@/context/themeProvider';
 import { store } from '@/store';
+import { PersistGate } from 'redux-persist/integration/react';
+
+const persistor = persistStore(store);
 
 /**
  * we cant use context api inside server components.
@@ -14,10 +18,12 @@ import { store } from '@/store';
 const Providers: FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return (
     <ReduxProvider store={store}>
-      <ThemeProvider>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
+      <PersistGate persistor={persistor} loading={<LinearProgress sx={{ mt: -1 }} />}>
+        <ThemeProvider>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
+      </PersistGate>
     </ReduxProvider>
   );
 };
