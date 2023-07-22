@@ -17,6 +17,7 @@ const presistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: presistedReducer,
   devTools: true,
+  middleware: (defaulMiddleWare) => defaulMiddleWare({ serializableCheck: false }),
 });
 
 // typed state and dispatch
