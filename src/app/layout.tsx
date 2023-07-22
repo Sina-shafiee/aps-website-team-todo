@@ -12,8 +12,6 @@ const roboto = Roboto({
 });
 
 const RootLayout = (props: { children: React.ReactNode; modal: React.ReactNode }) => {
-  console.log({ props });
-
   return (
     <html lang='en' dir='ltr'>
       <body className={roboto.className}>

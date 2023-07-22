@@ -1,7 +1,7 @@
-import { Modal as BaseModal } from '@/components/ui';
+import { AddTodoModal } from '@/components/ui';
 
 const Modal = () => {
-  return <BaseModal />;
+  return <AddTodoModal />;
 };
 
 export default Modal;

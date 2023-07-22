@@ -1,15 +1,12 @@
 'use client';
-import { ReactNode, useState } from 'react';
+import { type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-
-import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 
 import CloseIcon from '@/assets/icons/close.svg';
 
@@ -32,7 +29,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => {
 });
 
 export interface DialogTitleProps {
-  id: string;
   children?: ReactNode;
   onClose: () => void;
 }
@@ -61,7 +57,13 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export function Modal() {
+type BaseModalProps = {
+  children: ReactNode;
+  action?: ReactNode;
+  title: string;
+};
+
+export function BaseModal({ children, action, title }: BaseModalProps) {
   const router = useRouter();
 
   const handleClose = () => {
@@ -69,29 +71,10 @@ export function Modal() {
   };
 
   return (
-    <BootstrapDialog onClose={handleClose} aria-labelledby='customized-dialog-title' open={true}>
-      <BootstrapDialogTitle id='customized-dialog-title' onClose={handleClose}>
-        Modal title
-      </BootstrapDialogTitle>
-      <DialogContent dividers>
-        <Typography gutterBottom>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        </Typography>
-        <Typography gutterBottom>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
-          rutrum faucibus dolor auctor.
-        </Typography>
-        <Typography gutterBottom>
-          Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur
-          et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
-        </Typography>
-      </DialogContent>
-      <DialogActions>
-        <Button autoFocus variant='contained' onClick={handleClose}>
-          Save
-        </Button>
-      </DialogActions>
+    <BootstrapDialog fullWidth maxWidth='sm' onClose={handleClose} open={true}>
+      <BootstrapDialogTitle onClose={handleClose}>{title}</BootstrapDialogTitle>
+      <DialogContent dividers>{children}</DialogContent>
+      <DialogActions>{action}</DialogActions>
     </BootstrapDialog>
   );
 }
