@@ -11,14 +11,17 @@ const roboto = Roboto({
   fallback: [' Helvetica Neue', 'Sans-Serif'],
 });
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = (props: { children: React.ReactNode; modal: React.ReactNode }) => {
   return (
     <html lang='en' dir='ltr'>
       <body className={roboto.className}>
-        <Container maxWidth='lg'>
-          <Header />
-          <Providers>{children}</Providers>
-        </Container>
+        <Providers>
+          {props.modal}
+          <Container maxWidth='lg'>
+            <Header />
+            {props.children}
+          </Container>
+        </Providers>
       </body>
     </html>
   );

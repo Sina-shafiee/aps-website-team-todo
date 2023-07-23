@@ -1,11 +1,13 @@
-import { IconButton, Typography } from '@mui/material';
+import { Button, Stack } from '@mui/material';
+import Link from 'next/link';
 import { AppBar } from '../styled';
+import { Logo, ThemeSwitch } from '../ui';
 
 export const Header = () => {
   return (
     <AppBar component='header' position='static' color='inherit'>
-      <Typography variant='h5'>Welcome</Typography>
-      <IconButton>hello</IconButton>
+      <Logo />
+      <ThemeSwitch />
     </AppBar>
   );
 };
