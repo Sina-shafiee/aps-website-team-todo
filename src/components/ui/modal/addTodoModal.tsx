@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { addTodoSchema, AddTodoValues } from '@/utils';
 
 import { BaseModal } from './baseModal';
+import { Fragment } from 'react';
 
 const AddTodoForm = dynamic(() => import('@/components/form').then((c) => c.AddTodoForm), {
   ssr: false,
@@ -27,15 +28,27 @@ export const AddTodoModal = () => {
     reValidateMode: 'onChange',
     mode: 'onChange',
     shouldFocusError: true,
+    defaultValues: {
+      title: '',
+      description: '',
+    },
   });
   const onSubmit = (data: AddTodoValues) => {
     _(addTodo(data));
+    handleCloseModal();
+  };
+  const handleCloseModal = () => {
     router.back();
   };
   const action = (
-    <Button type='submit' form='add-todo-form' variant='contained'>
-      Save
-    </Button>
+    <Fragment>
+      <Button onClick={handleCloseModal} variant='outlined'>
+        cancel
+      </Button>
+      <Button type='submit' form='add-todo-form' variant='contained'>
+        Save
+      </Button>
+    </Fragment>
   );
   return (
     <BaseModal title='Add Todo' action={action}>

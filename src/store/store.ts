@@ -28,7 +28,7 @@ export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-export { addTodo, deleteTodo } from './todo/todoSlice';
+export { addTodo, updateTodo, deleteTodo } from './todo/todoSlice';
 export { toggleTheme } from './theme/themeSlice';
 
 export default store;

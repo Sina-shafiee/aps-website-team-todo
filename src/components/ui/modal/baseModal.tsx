@@ -10,23 +10,20 @@ import IconButton from '@mui/material/IconButton';
 
 import CloseIcon from '@/assets/icons/close.svg';
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => {
-  console.log(theme.palette.background.default);
-  return {
-    '& .MuiPaper-root': {
-      backgroundColor: `${theme.palette.background.paper} !important`,
-    },
-    '& .MuiBackdrop-root': {
-      backdropFilter: 'blur(2px)',
-    },
-    '& .MuiDialogContent-root': {
-      padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-      padding: theme.spacing(1),
-    },
-  };
-});
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiPaper-root': {
+    backgroundColor: `${theme.palette.background.paper} !important`,
+  },
+  '& .MuiBackdrop-root': {
+    backdropFilter: 'blur(2px)',
+  },
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
 
 export interface DialogTitleProps {
   children?: ReactNode;

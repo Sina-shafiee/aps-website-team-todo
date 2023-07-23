@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { InitialTodoState, Todo } from '@/types';
-import { AddTodoValues } from '@/utils';
+import { AddTodoValues, UpdateTodoValues } from '@/utils';
 
 const initialState: InitialTodoState = [];
 
@@ -12,11 +12,24 @@ export const todoSlice = createSlice({
       const { description, title } = action.payload;
       state.unshift({ id: state.length + 1, title, description, is_completed: false, date: new Date() });
     },
+    updateTodo: (state, action: PayloadAction<UpdateTodoValues & { id: number }>) => {
+      const { id, title, description, is_completed } = action.payload;
+      state.map((t) => {
+        if (t.id === id) {
+          t.title = title;
+          t.description = description;
+          t.is_completed = is_completed;
+        }
+        return t;
+      });
+    },
     deleteTodo: (state, action: PayloadAction<number>) => {
-      return state.filter((t) => t.id !== action.payload);
+      const id = action.payload;
+      const itemIndex = state.findIndex((t) => t.id === id);
+      state.splice(itemIndex, 1);
     },
   },
 });
 
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, deleteTodo } = todoSlice.actions;
 export default todoSlice.reducer;

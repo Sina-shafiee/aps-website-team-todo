@@ -3,5 +3,7 @@ export * from './logo/logo';
 export * from './switch/themeSwitch';
 export * from './modal/baseModal';
 export * from './modal/addTodoModal';
+export * from './modal/updateTodoModal';
 export * from './card/taskCard';
 export * from './field/textField';
+export * from './field/checkbox';

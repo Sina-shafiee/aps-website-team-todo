@@ -11,7 +11,7 @@ export const AddTodoForm = ({
   handleSubmit: FormEventHandler<HTMLFormElement>;
 }) => {
   return (
-    <Stack component='form' sx={{ height: '120px' }} spacing='8px' id='add-todo-form' onSubmit={handleSubmit}>
+    <Stack component='form' sx={{ height: '130px' }} spacing='12px' id='add-todo-form' onSubmit={handleSubmit}>
       <TextField placeHolder='Title' control={control} name='title' />
       <TextField placeHolder='Description' control={control} name='description' />
     </Stack>

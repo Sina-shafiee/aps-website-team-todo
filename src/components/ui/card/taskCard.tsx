@@ -1,16 +1,21 @@
 'use client';
 
-import { Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography, useTheme } from '@mui/material';
 import { deleteTodo, useAppDispatch } from '@/store';
 import { Todo } from '@/types';
+import Link from 'next/link';
+import { tokens } from '@/constants';
 
 type Props = Todo & {};
 
 export const TaskCard = ({ description, date, title, id, is_completed }: Props) => {
   const _ = useAppDispatch();
+  const themeMode = useTheme().palette.mode;
+  const CardBgColor = is_completed ? tokens(themeMode).grey[900] : null;
+
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, backgroundColor: CardBgColor }}>
         <CardContent>
           <Grid container>
             <Grid item xs={8} sx={{ display: 'flex', alignItems: 'center' }}>
@@ -48,18 +53,19 @@ export const TaskCard = ({ description, date, title, id, is_completed }: Props) 
         </CardContent>
         <CardActions>
           <Button
-            sx={{ boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-            color='secondary'
+            sx={{ boxShadow: 'none', '&:hover': { boxShadow: 'none' }, mr: 1 }}
             variant='contained'
             size='small'
+            component={Link}
+            href={`/update/${id}`}
           >
             Edit
           </Button>
 
           <Button
             sx={{ boxShadow: 'none', '&:hover': { boxShadow: 'none' } }}
-            color='warning'
-            variant='contained'
+            variant='outlined'
+            color='inherit'
             size='small'
             onClick={() => _(deleteTodo(id))}
           >

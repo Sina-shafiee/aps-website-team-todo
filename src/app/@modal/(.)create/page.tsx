@@ -1,7 +1,7 @@
 import { AddTodoModal } from '@/components/ui';
 
-const Modal = () => {
+const CreateModal = () => {
   return <AddTodoModal />;
 };
 
-export default Modal;
+export default CreateModal;

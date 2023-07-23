@@ -2,7 +2,7 @@ import { darkColors, lightColors } from './colors';
 
 export const darkTheme = {
   primary: {
-    main: darkColors.primary[500],
+    main: darkColors.greenAccent[200],
   },
   secondary: {
     main: darkColors.greenAccent[500],

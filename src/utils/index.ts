@@ -1,2 +1,2 @@
 export * from './utils';
-export * from './validation/addTodo';
+export * from './validation/todo';
