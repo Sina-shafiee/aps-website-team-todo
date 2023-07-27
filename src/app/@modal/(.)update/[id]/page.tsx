@@ -1,5 +1,5 @@
 import React from 'react';
-import { UpdateTodoModal } from '@/components/ui';
+import { UpdateTodoModal } from '@/components/domains/update';
 
 type Props = { params: { id: string } };
 

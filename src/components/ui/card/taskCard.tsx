@@ -4,7 +4,7 @@ import { Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography,
 import { deleteTodo, useAppDispatch } from '@/store';
 import { Todo } from '@/types';
 import Link from 'next/link';
-import { tokens } from '@/constants';
+import { tokens } from '@/utils/constants';
 
 type Props = Todo & {};
 
