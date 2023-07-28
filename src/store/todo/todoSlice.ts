@@ -10,7 +10,13 @@ export const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action: PayloadAction<AddTodoValues>) => {
       const { description, title } = action.payload;
-      state.unshift({ id: state.length + 1, title, description, is_completed: false, date: new Date() });
+      state.unshift({
+        id: state.length + 1,
+        title,
+        description,
+        is_completed: false,
+        date: new Date(),
+      });
     },
     updateTodo: (state, action: PayloadAction<UpdateTodoValues & { id: number }>) => {
       const { id, title, description, is_completed } = action.payload;

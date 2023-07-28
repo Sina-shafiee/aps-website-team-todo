@@ -1,4 +1,4 @@
-import { AddTodoModal } from '@/components/ui';
+import { AddTodoModal } from '@/components/domains/create';
 
 const CreateModal = () => {
   return <AddTodoModal />;
