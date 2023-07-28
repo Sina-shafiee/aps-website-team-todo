@@ -57,6 +57,7 @@ pnpm prettier
     │   └── components
     │          ├── ui                  # global ui related components
     │          ├── domains             # page's specific components
+    │          ├── form                # form components
     │          └── ...                 # global components
     │   ├── store                # redux store & store related logic
     │   ├── theme                # theme provider
