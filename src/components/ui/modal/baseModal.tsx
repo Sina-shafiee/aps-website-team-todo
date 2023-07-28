@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
@@ -71,7 +72,12 @@ export function BaseModal({ children, action, title }: BaseModalProps) {
     <BootstrapDialog fullWidth maxWidth='sm' onClose={handleClose} open={true}>
       <BootstrapDialogTitle onClose={handleClose}>{title}</BootstrapDialogTitle>
       <DialogContent dividers>{children}</DialogContent>
-      <DialogActions>{action}</DialogActions>
+      <DialogActions>
+        <Button onClick={handleClose} variant='outlined'>
+          cancel
+        </Button>
+        {action}
+      </DialogActions>
     </BootstrapDialog>
   );
 }

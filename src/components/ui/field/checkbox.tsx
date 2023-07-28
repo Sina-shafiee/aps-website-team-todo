@@ -15,7 +15,11 @@ export const Checkbox = <T extends FieldValues>({ control, name, label }: Props<
             <FormControlLabel
               label={label}
               control={
-                <MuiCheckbox size='small' checked={field.value} onChange={(_, checked) => field.onChange(checked)} />
+                <MuiCheckbox
+                  size='small'
+                  checked={field.value}
+                  onChange={(_, checked) => field.onChange(checked)}
+                />
               }
             />
           );

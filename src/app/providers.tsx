@@ -2,11 +2,11 @@
 import type { FC, PropsWithChildren } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { persistStore } from 'redux-persist';
-import { CssBaseline, LinearProgress } from '@mui/material';
-
-import { ThemeProvider } from '@/context/themeProvider';
-import { store } from '@/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { CssBaseline } from '@mui/material';
+
+import { ThemeProvider } from '@/theme/themeProvider';
+import { store } from '@/store';
 
 const persistor = persistStore(store);
 

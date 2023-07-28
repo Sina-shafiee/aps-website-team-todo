@@ -1,10 +1,20 @@
 'use client';
 
-import { Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Divider,
+  Grid,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import { deleteTodo, useAppDispatch } from '@/store';
 import { Todo } from '@/types';
 import Link from 'next/link';
-import { tokens } from '@/constants';
+import { tokens } from '@/utils/constants';
 
 type Props = Todo & {};
 
@@ -33,7 +43,9 @@ export const TaskCard = ({ description, date, title, id, is_completed }: Props) 
             </Grid>
             <Grid item xs={4}>
               <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
-                {new Date(date).toLocaleDateString('en-UK', { dateStyle: 'medium' })}
+                {new Date(date).toLocaleDateString('en-UK', {
+                  dateStyle: 'medium',
+                })}
               </Typography>
             </Grid>
           </Grid>
@@ -49,7 +61,7 @@ export const TaskCard = ({ description, date, title, id, is_completed }: Props) 
           >
             {description}
           </Box>
-          {is_completed ? 'completed' : 'not completed'}
+          <span>{is_completed ? 'completed' : 'not completed'}</span>
         </CardContent>
         <CardActions>
           <Button
