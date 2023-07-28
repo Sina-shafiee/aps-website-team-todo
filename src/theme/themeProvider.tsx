@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
           ...(mode === 'dark' ? darkTheme : lightTheme),
         },
       }),
-    []
+    [],
   );
 
   return <MuiThemeProvider theme={theme(mode)}>{children}</MuiThemeProvider>;
