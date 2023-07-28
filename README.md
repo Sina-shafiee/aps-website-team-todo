@@ -54,7 +54,7 @@ pnpm prettier
     ├── src                      # all source files live here
     │   ├── app                  # webapp pages
     │   ├── assets               # icons images etc
-    │   ├── components
+    │   └── components
     │          ├── ui                  # global ui related components
     │          ├── domains             # page's specific components
     │          └── ...                 # global components
