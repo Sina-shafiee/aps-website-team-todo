@@ -1,34 +1,67 @@
+# WEBSITE TEAM UP SKILL TASK
+
+<p align="center">
+  <a href="#getting-started">How To Use</a> •
+  <a href="#file-and-folder-structure">folder structure</a> •
+  <a href="#license">License</a>
+</p>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Open your terminal in root directory of project and run following command to install pnpm and despondencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+npm i -g pnpm & pnpm install
+```
+
+Run the development server:
+
+```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build project and run production server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm build & pnpm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run tests
 
-## Learn More
+```bash
+pnpm test
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run tests live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm test:watch
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In order to prettify the code
+you could use prettier extension or following command
 
-## Deploy on Vercel
+```bash
+pnpm prettier
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## File and folder structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    .
+    ├── public
+    ├── src                      # all source files live here
+    │   ├── app                  # webapp pages
+    │   ├── assets               # icons images etc
+    │   ├── components
+    │          ├── ui                  # global ui related components
+    │          ├── domains             # page's specific components
+    │          └── ...                 # global components
+    │   ├── store                # redux store & store related logic
+    │   ├── theme                # theme provider
+    │   ├── types                # global app types
+    │   └── utils
+    │          ├── constants           # constant data
+    │          └── validation          # zod validations
+    └── ...
