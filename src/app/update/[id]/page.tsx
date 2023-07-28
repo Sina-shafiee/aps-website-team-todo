@@ -1,6 +1,6 @@
 import { Button, Container, Stack, Typography } from '@mui/material';
 import { UpdateTodoForm } from '@/components/form';
-import { notFound } from 'next/navigation';
+
 type Props = { params: { id: string } };
 
 const CreatePage = ({ params }: Props) => {
