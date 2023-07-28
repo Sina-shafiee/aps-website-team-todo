@@ -35,7 +35,7 @@ export const UpdateTodoForm = ({ insideModal, todoId }: Props) => {
     return notFound();
   }
   const handleCloseModal = () => {
-    insideModal ? router.back : router.push('/');
+    insideModal ? router.back() : router.push('/');
   };
 
   const onSubmit = (data: UpdateTodoValues) => {
