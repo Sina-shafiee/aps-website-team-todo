@@ -10,7 +10,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Open your terminal in root directory of project and run following command to install pnpm and despondencies
+Open your terminal in root directory of project and run following command to install pnpm and dependencies
 
 ```bash
 npm i -g pnpm & pnpm install
